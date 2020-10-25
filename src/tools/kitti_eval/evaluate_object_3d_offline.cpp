@@ -850,6 +850,7 @@ bool eval(string gt_dir, string result_dir, Mail* mail){
   // holds pointers for result files
   FILE *fp_det=0, *fp_ori=0;
 
+  compute_aos = false;
   // eval image 2D bounding boxes
   for (int c = 0; c < NUM_CLASS; c++) {
     CLASSES cls = (CLASSES)c;
@@ -874,7 +875,7 @@ bool eval(string gt_dir, string result_dir, Mail* mail){
   }
 
   // don't evaluate AOS for birdview boxes and 3D boxes
-  compute_aos = false;
+
 
   // eval bird's eye view bounding boxes
 //  for (int c = 0; c < NUM_CLASS; c++) {

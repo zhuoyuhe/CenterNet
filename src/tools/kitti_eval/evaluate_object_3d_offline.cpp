@@ -6,7 +6,7 @@
 #include <numeric>
 #include <strings.h>
 #include <assert.h>
-
+#include <sstream>
 #include <dirent.h>
 
 #include <boost/numeric/ublas/matrix.hpp>
@@ -780,11 +780,10 @@ vector<int32_t> getEvalIndices(const string& result_dir) {
     dirent* entity;
     dir = opendir(result_dir.c_str());
     if (dir) {
-	printf("open_success");
         while (entity = readdir(dir)) {
-            printf("get in");
             string path(entity->d_name);
             int32_t len = path.size();
+	    cout << path << endl;
             if (len < 10) continue;
             int32_t index = atoi(path.substr(len - 10, 10).c_str());
             indices.push_back(index);

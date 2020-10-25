@@ -785,7 +785,7 @@ vector<int32_t> getEvalIndices(const string& result_dir) {
             int32_t len = path.size();
             //if (len < 10) continue;
             int32_t index = atoi(path.substr(0, 4).c_str());
-	    cout << index << endl;
+	    //cout << index << endl;
             indices.push_back(index);
         }
     }
@@ -825,7 +825,7 @@ bool eval(string gt_dir, string result_dir, Mail* mail){
 
     // file name
     char file_name[256];
-    sprintf(file_name,"%06d.txt",indices.at(i));
+    sprintf(file_name,"%04d.txt",indices.at(i));
 
     // read ground truth and result poses
     bool gt_success,det_success;

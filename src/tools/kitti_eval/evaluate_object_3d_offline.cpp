@@ -783,9 +783,9 @@ vector<int32_t> getEvalIndices(const string& result_dir) {
         while (entity = readdir(dir)) {
             string path(entity->d_name);
             int32_t len = path.size();
-	    cout << path << endl;
-            if (len < 10) continue;
-            int32_t index = atoi(path.substr(len - 10, 10).c_str());
+            //if (len < 10) continue;
+            int32_t index = atoi(path.substr(0, 4).c_str());
+	    cout << index << endl;
             indices.push_back(index);
         }
     }

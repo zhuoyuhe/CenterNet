@@ -780,7 +780,9 @@ vector<int32_t> getEvalIndices(const string& result_dir) {
     dirent* entity;
     dir = opendir(result_dir.c_str());
     if (dir) {
+	printf("open_success");
         while (entity = readdir(dir)) {
+            printf("get in");
             string path(entity->d_name);
             int32_t len = path.size();
             if (len < 10) continue;
